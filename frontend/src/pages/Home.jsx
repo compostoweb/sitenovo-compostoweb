@@ -47,7 +47,7 @@ const Home = () => {
   const pillars = [
     {
       icon: Zap,
-      image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1743385779347-1549dabf1320?w=600&q=80',
       title: 'Automação RPA e Eficiência Operacional',
       description: 'Robôs e fluxos inteligentes que eliminam tarefas repetitivas e aceleram processos internos. Sua operação funciona com mais precisão, menos falhas e muito mais velocidade.'
     },
