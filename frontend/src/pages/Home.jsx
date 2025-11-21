@@ -196,21 +196,21 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {pillars.map((pillar, index) => (
               <Card 
                 key={index} 
-                className="fade-in-section bg-[#151518] border-white/5 hover:border-[#4A90E2]/50 transition-all duration-500 hover:scale-105 group"
+                className="fade-in-section bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 hover:border-[#4A90E2]/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-[#4A90E2]/10 group"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardContent className="p-8">
-                  <div className="mb-6 inline-flex p-4 bg-[#4A90E2]/10 rounded-2xl group-hover:bg-[#4A90E2]/20 transition-colors duration-300">
-                    <pillar.icon className="h-10 w-10 text-[#4A90E2]" strokeWidth={1.5} />
+                <CardContent className="p-6">
+                  <div className="mb-5 inline-flex p-3 bg-[#4A90E2]/10 rounded-xl group-hover:bg-[#4A90E2]/20 transition-colors duration-300">
+                    <pillar.icon className="h-8 w-8 text-[#4A90E2]" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-[#4A90E2] transition-colors duration-300">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#4A90E2] transition-colors duration-300">
                     {pillar.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed text-lg">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     {pillar.description}
                   </p>
                 </CardContent>
