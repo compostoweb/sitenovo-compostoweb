@@ -252,11 +252,11 @@ const Home = () => {
       {/* How It Works Section */}
       <section className="py-32 px-6 bg-[#0f0f11] relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 fade-in-section">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <div className="text-center mb-16 fade-in-section">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
               Como funciona
             </h2>
-            <p className="text-2xl text-[#4A90E2] font-semibold">
+            <p className="text-lg text-[#4A90E2] font-semibold">
               Mapeamos, automatizamos, integramos e escalamos
             </p>
           </div>
