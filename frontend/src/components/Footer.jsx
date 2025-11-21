@@ -43,16 +43,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-5 gap-8 mb-12">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-4">
               <img
-                src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/meum1uho_Favicon%20Composto%20Web%20-%20Nov25.png"
+                src="https://customer-assets.emergentagent.com/job_digital-transform-29/artifacts/asok1h5a_Logo%20Texto%20branco%20nov25%20-%20Composto%20Web.png"
                 alt="Composto Web"
-                className="h-10 w-10"
-              />
-              <img
-                src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/cka8rhn4_Logo%20nova%20-%20Composto%20Web%20%28500%20x%20100%20px%29.png"
-                alt="Composto Web"
-                className="h-7"
+                className="h-8"
               />
             </div>
             <p className="text-gray-400 text-sm">
