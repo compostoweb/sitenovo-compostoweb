@@ -13,8 +13,17 @@ const InteligenciaComercial = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-white pt-20">
-      <section className="py-24 px-6">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/flagged/photo-1553267252-d100936057c1?w=1920&q=80" 
+            alt="Business Analytics"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0b] via-[#0a0a0b]/90 to-[#0a0a0b]" />
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto text-center">
           <div className="mb-6 inline-flex p-4 bg-[#4A90E2]/10 rounded-2xl">
             <TrendingUp className="h-12 w-12 text-[#4A90E2]" />
           </div>
@@ -34,10 +43,28 @@ const InteligenciaComercial = () => {
 
       <section className="py-24 px-6 bg-[#0f0f11]">
         <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">
+                Vendas <span className="text-[#4A90E2]">mais inteligentes</span>
+              </h2>
+              <p className="text-gray-300 leading-relaxed">
+                Nossa IA comercial analisa milhares de dados em segundos, priorizando automaticamente os leads com maior probabilidade de conversão. Seu time foca apenas nas oportunidades certas.
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=800&q=80" 
+                alt="Analytics Dashboard"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
           <h2 className="text-3xl font-bold text-center mb-12">O que você <span className="text-[#4A90E2]">ganha</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10">
+              <Card key={index} className="bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 hover:border-[#4A90E2]/50 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="mb-4 inline-flex p-3 bg-[#4A90E2]/10 rounded-xl">
                     <feature.icon className="h-8 w-8 text-[#4A90E2]" />
