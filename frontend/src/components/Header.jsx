@@ -25,25 +25,17 @@ const Header = () => {
         { path: '/sobre/manifesto', label: 'Manifesto' }
       ]
     },
-    { path: '/clientes-cases', label: 'Clientes e Cases' },
+    { path: '/clientes-cases', label: 'Clientes' },
     { path: '/blog', label: 'Blog' },
     { path: '/contato', label: 'Contato' }
   ];
 
-  const handleMouseEnter = (label) => {
-    setOpenDropdown(label);
-  };
-
-  const handleMouseLeave = () => {
-    setOpenDropdown(null);
-  };
-
   return (
-    <header className="fixed top-0 w-full z-50 bg-white shadow-md">
+    <header className="fixed top-0 w-full z-50 bg-gray-50 shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img
-            src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/cka8rhn4_Logo%20nova%20-%20Composto%20Web%20%28500%20x%20100%20px%29.png"
+            src="https://customer-assets.emergentagent.com/job_digital-transform-29/artifacts/c52q9usi_Logo%20nova%20oficial%20nov25%20-%20Composto%20Web.png"
             alt="Composto Web"
             className="h-8"
           />
@@ -53,9 +45,7 @@ const Header = () => {
           {menuItems.map((item, index) => (
             <div
               key={index}
-              className="relative"
-              onMouseEnter={() => item.submenu && handleMouseEnter(item.label)}
-              onMouseLeave={handleMouseLeave}
+              className="relative group"
             >
               {item.path ? (
                 <Link
@@ -75,13 +65,13 @@ const Header = () => {
                 </button>
               )}
 
-              {item.submenu && openDropdown === item.label && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-gray-100 py-2">
+              {item.submenu && (
+                <div className="absolute top-full left-0 mt-2 w-max min-w-[320px] bg-white shadow-xl rounded-lg border border-gray-200 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   {item.submenu.map((subitem, subindex) => (
                     <Link
                       key={subindex}
                       to={subitem.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#4A90E2] transition-colors"
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#4A90E2] transition-colors whitespace-nowrap"
                     >
                       {subitem.label}
                     </Link>
