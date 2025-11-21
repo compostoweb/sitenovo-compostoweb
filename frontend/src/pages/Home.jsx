@@ -261,36 +261,44 @@ const Home = () => {
       {/* Tech Showcase Section */}
       <section className="py-24 px-6 bg-[#0f0f11] relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="fade-in-section">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Tecnologia que <span className="text-[#4A90E2]">transforma</span>
-              </h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Utilizamos as tecnologias mais modernas e robustas do mercado para criar soluções que realmente funcionam.
-                Da automação à inteligência artificial, cada linha de código é pensada para gerar resultados.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['Python', 'React', 'Node.js', 'MongoDB', 'AWS', 'Docker', 'AI/ML', 'RPA'].map((tech, i) => (
-                  <span key={i} className="px-4 py-2 bg-[#4A90E2]/10 border border-[#4A90E2]/30 rounded-lg text-sm font-semibold text-[#4A90E2]">
-                    {tech}
-                  </span>
-                ))}
+          <div className="text-center mb-16 fade-in-section">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Tecnologia que <span className="text-[#4A90E2]">transforma</span>
+            </h2>
+            <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Utilizamos as tecnologias mais modernas e robustas do mercado para criar soluções que realmente funcionam.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16">
+            {[
+              { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+              { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+              { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+              { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+              { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+              { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+              { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+              { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
+            ].map((tech, i) => (
+              <div key={i} className="fade-in-section flex flex-col items-center gap-3 p-4 bg-[#151518] border border-white/10 rounded-xl hover:border-[#4A90E2]/50 transition-all duration-300 hover:scale-110 group" style={{ animationDelay: `${i * 50}ms` }}>
+                <img src={tech.logo} alt={tech.name} className="h-12 w-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+                <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors">{tech.name}</span>
               </div>
-            </div>
-            
-            <div className="fade-in-section relative">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?w=800&q=80" 
-                  alt="Código de programação"
-                  className="w-full h-auto"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
-              </div>
-              {/* Floating tech icons */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#4A90E2] rounded-xl flex items-center justify-center shadow-xl animate-float">
-                <Cpu className="h-10 w-10 text-white" />
+            ))}
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl fade-in-section">
+            <img 
+              src="https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?w=1200&q=80" 
+              alt="Código de programação"
+              className="w-full h-auto opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/60 to-transparent flex items-center justify-center">
+              <div className="text-center px-6">
+                <Cpu className="h-16 w-16 text-[#4A90E2] mx-auto mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Stack Tecnológico Moderno</h3>
+                <p className="text-gray-300">Cada linha de código pensada para gerar resultados</p>
               </div>
             </div>
           </div>
