@@ -132,11 +132,11 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <div className="mb-8 inline-block">
+          <div className="mb-6 inline-block">
             <img 
               src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/meum1uho_Favicon%20Composto%20Web%20-%20Nov25.png" 
               alt="Composto Web Symbol" 
-              className="h-24 w-24 mx-auto animate-float"
+              className="h-16 w-16 mx-auto animate-float"
             />
           </div>
           
