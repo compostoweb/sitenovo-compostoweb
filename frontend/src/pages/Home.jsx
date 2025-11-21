@@ -334,44 +334,71 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* How It Works Section - New Design */}
       <section className="py-24 px-6 bg-[#0f0f11] relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 fade-in-section">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              Como funciona
+              Como <span className="text-[#4A90E2]">funciona</span>
             </h2>
-            <p className="text-lg text-[#4A90E2] font-semibold">
+            <p className="text-lg text-gray-300">
               Mapeamos, automatizamos, integramos e escalamos
             </p>
           </div>
 
-          <div className="relative">
-            {/* Connection line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[#4A90E2]/20 via-[#F5A623]/40 to-[#4A90E2]/20" />
-            
-            <div className="grid md:grid-cols-5 gap-8">
-              {steps.map((step, index) => (
-                <div 
-                  key={index}
-                  className="fade-in-section relative"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-center group">
-                    <div className="mb-4 mx-auto w-16 h-16 bg-gradient-to-br from-[#151518] to-[#0f0f11] border-2 border-[#4A90E2] rounded-full flex items-center justify-center font-bold text-xl text-[#4A90E2] group-hover:bg-[#4A90E2] group-hover:text-white transition-all duration-300 relative z-10">
-                      {step.number}
-                    </div>
-                    <p className="text-sm font-semibold leading-tight">
-                      {step.title}
-                    </p>
-                  </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {steps.map((step, index) => (
+              <div 
+                key={index}
+                className="fade-in-section relative bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 rounded-2xl p-8 hover:border-[#4A90E2]/50 transition-all duration-500 hover:translate-y-[-4px] group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Step Number Badge */}
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-[#4A90E2] rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-lg">
+                  {step.number}
                 </div>
-              ))}
-            </div>
+
+                {/* Icon */}
+                <div className="mb-4 inline-flex p-4 bg-[#4A90E2]/10 rounded-xl group-hover:bg-[#4A90E2]/20 transition-colors duration-300">
+                  {index === 0 && <CheckCircle2 className="h-8 w-8 text-[#4A90E2]" />}
+                  {index === 1 && <Target className="h-8 w-8 text-[#4A90E2]" />}
+                  {index === 2 && <Cpu className="h-8 w-8 text-[#4A90E2]" />}
+                  {index === 3 && <Zap className="h-8 w-8 text-[#4A90E2]" />}
+                  {index === 4 && <TrendingUp className="h-8 w-8 text-[#4A90E2]" />}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-3 group-hover:text-[#4A90E2] transition-colors duration-300">
+                  {step.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {index === 0 && 'Entendemos profundamente seus processos, identificando pontos de melhoria e oportunidades.'}
+                  {index === 1 && 'Mapeamos gargalos operacionais e encontramos onde a automação gera mais impacto.'}
+                  {index === 2 && 'Desenvolvemos robôs e sistemas inteligentes personalizados para sua operação.'}
+                  {index === 3 && 'Conectamos todos os sistemas e ferramentas em um ecossistema unificado.'}
+                  {index === 4 && 'Monitoramos performance e otimizamos continuamente para máxima eficiência.'}
+                </p>
+
+                {/* Arrow indicator for desktop */}
+                {index < 4 && (
+                  <div className="hidden lg:block absolute -right-8 top-1/2 transform -translate-y-1/2">
+                    <ArrowRight className="h-6 w-6 text-[#4A90E2]/30" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
             
-            <p className="text-center text-base text-gray-400 mt-10 fade-in-section">
+          <div className="text-center mt-12 fade-in-section">
+            <p className="text-base text-gray-400 mb-6">
               Tudo desenhado para gerar impacto real no dia a dia da empresa.
             </p>
+            <Button className="bg-[#4A90E2] hover:bg-[#3A7BC8] text-white font-semibold px-8">
+              Ver Processo Completo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </div>
         </div>
       </section>
