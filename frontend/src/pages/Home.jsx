@@ -98,8 +98,16 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Animated background with noise texture */}
-        <div className="absolute inset-0 hero-gradient opacity-60" />
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=1920&q=80" 
+            alt="AI Technology"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0b] via-[#0a0a0b]/95 to-[#0a0a0b]" />
+        </div>
+        
         <div className="absolute inset-0 noise-texture" />
         
         {/* Floating geometric shapes */}
