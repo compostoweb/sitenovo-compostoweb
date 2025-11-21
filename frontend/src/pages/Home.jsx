@@ -225,11 +225,12 @@ const Home = () => {
       <section className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 fade-in-section">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              Somos mais do que prestadores de serviço.
-              <br />
-              <span className="text-[#F5A623]">Somos parceiros estratégicos de transformação.</span>
+            <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+              Somos mais do que prestadores de serviço
             </h2>
+            <p className="text-2xl text-[#F5A623] font-semibold mb-8">
+              Somos parceiros estratégicos que constroem sistemas inteligentes para transformar sua operação.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
