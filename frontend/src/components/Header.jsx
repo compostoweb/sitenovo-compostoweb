@@ -37,7 +37,7 @@ const Header = () => {
           <img
             src="https://customer-assets.emergentagent.com/job_digital-transform-29/artifacts/c52q9usi_Logo%20nova%20oficial%20nov25%20-%20Composto%20Web.png"
             alt="Composto Web"
-            className="h-8"
+            className="h-10"
           />
         </Link>
 
