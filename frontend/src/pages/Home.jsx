@@ -322,7 +322,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-32 px-6 bg-[#0f0f11] relative overflow-hidden">
+      <section className="py-24 px-6 bg-[#0f0f11] relative overflow-hidden">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#4A90E2]/20 rounded-full blur-3xl" />
           <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[#F5A623]/20 rounded-full blur-3xl" />
