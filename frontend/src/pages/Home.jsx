@@ -223,6 +223,45 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Tech Showcase Section */}
+      <section className="py-24 px-6 bg-[#0f0f11] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="fade-in-section">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Tecnologia que <span className="text-[#4A90E2]">transforma</span>
+              </h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Utilizamos as tecnologias mais modernas e robustas do mercado para criar soluções que realmente funcionam.
+                Da automação à inteligência artificial, cada linha de código é pensada para gerar resultados.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {['Python', 'React', 'Node.js', 'MongoDB', 'AWS', 'Docker', 'AI/ML', 'RPA'].map((tech, i) => (
+                  <span key={i} className="px-4 py-2 bg-[#4A90E2]/10 border border-[#4A90E2]/30 rounded-lg text-sm font-semibold text-[#4A90E2]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="fade-in-section relative">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?w=800&q=80" 
+                  alt="Código de programação"
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+              </div>
+              {/* Floating tech icons */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#4A90E2] rounded-xl flex items-center justify-center shadow-xl animate-float">
+                <Cpu className="h-10 w-10 text-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Differential Section */}
       <section className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
