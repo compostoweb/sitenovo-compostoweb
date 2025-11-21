@@ -270,35 +270,63 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16">
-            {[
-              { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-              { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-              { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-              { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-              { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
-              { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-              { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
-              { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
-            ].map((tech, i) => (
-              <div key={i} className="fade-in-section flex flex-col items-center gap-3 p-4 bg-[#151518] border border-white/10 rounded-xl hover:border-[#4A90E2]/50 transition-all duration-300 hover:scale-110 group" style={{ animationDelay: `${i * 50}ms` }}>
-                <img src={tech.logo} alt={tech.name} className="h-12 w-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
-                <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors">{tech.name}</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left - Technologies Grid */}
+            <div className="fade-in-section">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {[
+                  { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+                  { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                  { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+                  { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+                  { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+                  { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+                  { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+                  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
+                ].map((tech, i) => (
+                  <div key={i} className="flex flex-col items-center gap-3 p-4 bg-[#151518] border border-white/10 rounded-xl hover:border-[#4A90E2]/50 transition-all duration-300 hover:scale-110 group" style={{ animationDelay: `${i * 50}ms` }}>
+                    <img src={tech.logo} alt={tech.name} className="h-12 w-12 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+                    <span className="text-xs font-medium text-gray-400 group-hover:text-white transition-colors">{tech.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl fade-in-section">
-            <img 
-              src="https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?w=1200&q=80" 
-              alt="Código de programação"
-              className="w-full h-auto opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/60 to-transparent flex items-center justify-center">
-              <div className="text-center px-6">
-                <Cpu className="h-16 w-16 text-[#4A90E2] mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Stack Tecnológico Moderno</h3>
-                <p className="text-gray-300">Cada linha de código pensada para gerar resultados</p>
+              <div className="mt-8 p-6 bg-[#151518] border border-white/10 rounded-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#4A90E2]/20 rounded-lg flex items-center justify-center">
+                    <Cpu className="h-6 w-6 text-[#4A90E2]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Stack Tecnológico Moderno</h3>
+                    <p className="text-sm text-gray-400">Sempre atualizado</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  Cada linha de código pensada para gerar resultados. Nossa stack é escolhida estrategicamente para garantir performance, escalabilidade e manutenibilidade.
+                </p>
+              </div>
+            </div>
+
+            {/* Right - Code Image */}
+            <div className="fade-in-section relative">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?w=800&q=80" 
+                  alt="Código de programação"
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+              </div>
+
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -right-4 bg-[#F5A623] rounded-xl p-4 shadow-xl animate-float">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                  <div>
+                    <div className="text-sm font-bold text-white">Código Limpo</div>
+                    <div className="text-xs text-white/80">Best Practices</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
