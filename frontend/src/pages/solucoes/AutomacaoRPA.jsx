@@ -24,8 +24,14 @@ const AutomacaoRPA = () => {
     <div className="min-h-screen bg-[#0a0a0b] text-white pt-20">
       {/* Hero Section */}
       <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#4A90E2]/20 rounded-full blur-3xl" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1761195696590-3490ea770aa1?w=1920&q=80" 
+            alt="Automação Industrial"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0b] via-[#0a0a0b]/90 to-[#0a0a0b]" />
         </div>
 
         <div className="relative max-w-5xl mx-auto text-center">
