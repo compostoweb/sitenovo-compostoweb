@@ -273,10 +273,10 @@ const Home = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="text-center group">
-                    <div className="mb-6 mx-auto w-20 h-20 bg-[#151518] border-2 border-[#4A90E2] rounded-full flex items-center justify-center font-bold text-2xl text-[#4A90E2] group-hover:bg-[#4A90E2] group-hover:text-white transition-all duration-300 relative z-10">
+                    <div className="mb-4 mx-auto w-16 h-16 bg-gradient-to-br from-[#151518] to-[#0f0f11] border-2 border-[#4A90E2] rounded-full flex items-center justify-center font-bold text-xl text-[#4A90E2] group-hover:bg-[#4A90E2] group-hover:text-white transition-all duration-300 relative z-10">
                       {step.number}
                     </div>
-                    <p className="text-lg font-semibold leading-tight">
+                    <p className="text-sm font-semibold leading-tight">
                       {step.title}
                     </p>
                   </div>
