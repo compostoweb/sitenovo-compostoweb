@@ -195,13 +195,21 @@ const Home = () => {
             {pillars.map((pillar, index) => (
               <Card 
                 key={index} 
-                className="fade-in-section bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 hover:border-[#4A90E2]/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-[#4A90E2]/10 group"
+                className="fade-in-section bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 hover:border-[#4A90E2]/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-[#4A90E2]/10 group overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardContent className="p-6">
-                  <div className="mb-5 inline-flex p-3 bg-[#4A90E2]/10 rounded-xl group-hover:bg-[#4A90E2]/20 transition-colors duration-300">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={pillar.image} 
+                    alt={pillar.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#151518] to-transparent" />
+                  <div className="absolute bottom-4 left-4 p-3 bg-[#4A90E2]/20 backdrop-blur-sm rounded-xl group-hover:bg-[#4A90E2]/30 transition-colors duration-300">
                     <pillar.icon className="h-8 w-8 text-[#4A90E2]" strokeWidth={1.5} />
                   </div>
+                </div>
+                <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-3 group-hover:text-[#4A90E2] transition-colors duration-300">
                     {pillar.title}
                   </h3>
