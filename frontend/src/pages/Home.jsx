@@ -47,21 +47,25 @@ const Home = () => {
   const pillars = [
     {
       icon: Zap,
+      image: 'https://images.unsplash.com/photo-1647427060118-4911c9821b82?w=600&q=80',
       title: 'Automação RPA e Eficiência Operacional',
       description: 'Robôs e fluxos inteligentes que eliminam tarefas repetitivas e aceleram processos internos. Sua operação funciona com mais precisão, menos falhas e muito mais velocidade.'
     },
     {
       icon: TrendingUp,
+      image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=600&q=80',
       title: 'Inteligência Comercial e Automação de Vendas',
       description: 'Organização comercial, IA para priorização de leads, cadências automáticas e CRM eficiente. Seu time vende mais com menos esforço.'
     },
     {
       icon: Cloud,
+      image: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=600&q=80',
       title: 'Software e Cloud Computing para Empresas',
       description: 'Sistemas internos, integrações via API, cloud moderna, microsserviços e infraestrutura escalável. A tecnologia deixa de ser um problema e vira alavanca de crescimento.'
     },
     {
       icon: Target,
+      image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?w=600&q=80',
       title: 'Marketing de Performance Integrado à Automação',
       description: 'Não entregamos leads crus. Entregamos MQL ou agendamento pronto com triagem inteligente e automação de ponta a ponta.'
     }
