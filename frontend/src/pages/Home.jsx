@@ -80,8 +80,8 @@ const Home = () => {
     { number: '01', title: 'Análise completa dos processos' },
     { number: '02', title: 'Identificação de gargalos e oportunidades' },
     { number: '03', title: 'Construção da solução inteligente' },
-    { number: '04', title: 'Integração total' },
-    { number: '05', title: 'Acompanhamento contínuo' }
+    { number: '04', title: 'Integração total entre sistemas' },
+    { number: '05', title: 'Acompanhamento e otimização contínua' }
   ];
 
   const results = [
