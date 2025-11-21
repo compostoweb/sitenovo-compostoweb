@@ -232,17 +232,17 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {differentials.map((item, index) => (
               <div 
                 key={index}
-                className="fade-in-section flex items-center gap-4 p-6 bg-[#151518] border border-white/5 rounded-2xl hover:border-[#F5A623]/50 transition-all duration-300 hover:scale-105 group"
+                className="fade-in-section flex items-center gap-3 p-5 bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 rounded-xl hover:border-[#F5A623]/50 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-[#F5A623]/10 group"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="p-3 bg-[#F5A623]/10 rounded-xl group-hover:bg-[#F5A623]/20 transition-colors duration-300">
-                  <item.icon className="h-6 w-6 text-[#F5A623]" strokeWidth={2} />
+                <div className="p-2.5 bg-[#F5A623]/10 rounded-lg group-hover:bg-[#F5A623]/20 transition-colors duration-300 flex-shrink-0">
+                  <item.icon className="h-5 w-5 text-[#F5A623]" strokeWidth={2} />
                 </div>
-                <p className="text-lg font-semibold">{item.text}</p>
+                <p className="text-sm font-semibold">{item.text}</p>
               </div>
             ))}
           </div>
