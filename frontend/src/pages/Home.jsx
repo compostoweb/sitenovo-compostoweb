@@ -193,7 +193,7 @@ const Home = () => {
               Conectamos tecnologia, processos e pessoas em um único ecossistema inteligente
             </p>
             <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              A Composto Web integra automação RPA, IA, software, cloud e performance comercial para criar sistemas completos que geram eficiência e crescimento real.
+              A Composto Web integra automação RPA, IA, software, cloud e performance comercial para criar operações eficientes, times mais produtivos e resultados previsíveis.
             </p>
           </div>
 
