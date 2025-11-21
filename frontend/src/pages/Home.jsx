@@ -284,6 +284,10 @@ const Home = () => {
                 </div>
               ))}
             </div>
+            
+            <p className="text-center text-xl text-gray-400 mt-12 fade-in-section">
+              Tudo desenhado para gerar impacto real no dia a dia da empresa.
+            </p>
           </div>
         </div>
       </section>
