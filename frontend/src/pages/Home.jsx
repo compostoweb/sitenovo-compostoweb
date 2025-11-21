@@ -146,9 +146,14 @@ const Home = () => {
             <span className="text-[#4A90E2]">para Empresas</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Sistemas que trabalham no lugar das pessoas.<br />
-            Resultados previsíveis, eficiência operacional e tecnologia aplicada para escalar negócios.
+          <p className="text-2xl md:text-3xl text-gray-200 mb-6 max-w-4xl mx-auto leading-tight font-semibold">
+            Tecnologia que potencializa equipes, transforma processos e gera crescimento previsível.
+          </p>
+
+          <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Soluções inteligentes que reduzem tarefas, aumentam eficiência e integram sua operação de ponta a ponta.
+            <br />
+            Automação, IA, software e performance comercial trabalhando juntos para criar empresas mais rápidas, mais produtivas e mais escaláveis.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
