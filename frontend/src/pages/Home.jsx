@@ -284,7 +284,7 @@ const Home = () => {
               ))}
             </div>
             
-            <p className="text-center text-xl text-gray-400 mt-12 fade-in-section">
+            <p className="text-center text-base text-gray-400 mt-10 fade-in-section">
               Tudo desenhado para gerar impacto real no dia a dia da empresa.
             </p>
           </div>
