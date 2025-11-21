@@ -184,14 +184,14 @@ const Home = () => {
       {/* What We Do Section */}
       <section className="py-32 px-6 bg-[#0f0f11] relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 fade-in-section">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-16 fade-in-section">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               O que fazemos
             </h2>
-            <p className="text-2xl text-[#4A90E2] font-semibold mb-4">
+            <p className="text-lg md:text-xl text-[#4A90E2] font-semibold mb-3">
               Conectamos tecnologia, processos e pessoas em um único ecossistema inteligente
             </p>
-            <p className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base text-gray-400 max-w-3xl mx-auto leading-relaxed">
               A Composto Web integra automação RPA, IA, software, cloud e performance comercial para criar operações eficientes, times mais produtivos e resultados previsíveis.
             </p>
           </div>
