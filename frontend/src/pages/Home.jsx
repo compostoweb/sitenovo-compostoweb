@@ -140,19 +140,18 @@ const Home = () => {
             />
           </div>
           
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
             Automação e Inteligência
             <br />
             <span className="text-[#4A90E2]">para Empresas</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl text-gray-200 mb-6 max-w-4xl mx-auto leading-tight font-semibold">
+          <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto leading-snug font-medium">
             Tecnologia que potencializa equipes, transforma processos e gera crescimento previsível.
           </p>
 
-          <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
             Soluções inteligentes que reduzem tarefas, aumentam eficiência e integram sua operação de ponta a ponta.
-            <br />
             Automação, IA, software e performance comercial trabalhando juntos para criar empresas mais rápidas, mais produtivas e mais escaláveis.
           </p>
           
