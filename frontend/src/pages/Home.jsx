@@ -100,78 +100,113 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-white">
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Image with Overlay */}
+      {/* Hero Section - New Design */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+        {/* Grid Background Pattern */}
+        <div className="absolute inset-0 bg-[#0a0a0b]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(rgba(74, 144, 226, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(74, 144, 226, 0.03) 1px, transparent 1px)',
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        {/* Gradient Overlays */}
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?w=1920&q=80" 
-            alt="AI Technology"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0b] via-[#0a0a0b]/95 to-[#0a0a0b]" />
-        </div>
-        
-        <div className="absolute inset-0 noise-texture" />
-        
-        {/* Floating geometric shapes */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div 
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4A90E2]/10 rounded-full blur-3xl"
-            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-          />
-          <div 
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#F5A623]/10 rounded-full blur-3xl"
-            style={{ transform: `translateY(${-scrollY * 0.2}px)` }}
-          />
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[#4A90E2]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#F5A623]/5 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <div className="mb-6 inline-block">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/meum1uho_Favicon%20Composto%20Web%20-%20Nov25.png" 
-              alt="Composto Web Symbol" 
-              className="h-16 w-16 mx-auto animate-float"
-            />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-[#4A90E2]/10 border border-[#4A90E2]/20 rounded-full">
+              <div className="w-2 h-2 bg-[#4A90E2] rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-[#4A90E2]">Automação Inteligente</span>
+            </div>
+
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Automação e
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] to-[#F5A623]">
+                Inteligência
+              </span>
+              <br />
+              para Empresas
+            </h1>
+            
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Tecnologia que potencializa equipes, transforma processos e gera crescimento previsível.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button 
+                size="lg"
+                className="bg-[#F5A623] hover:bg-[#E09515] text-white text-base px-8 py-6 font-semibold transition-all duration-300 hover:scale-105"
+              >
+                Quero transformar minha empresa
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 border-[#4A90E2] text-white hover:bg-[#4A90E2]/10 text-base px-8 py-6 font-semibold transition-all duration-300"
+              >
+                Ver soluções
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              <div>
+                <div className="text-3xl font-bold text-[#4A90E2] mb-1">80%</div>
+                <div className="text-sm text-gray-400">Redução de tempo</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#4A90E2] mb-1">24/7</div>
+                <div className="text-sm text-gray-400">Operação contínua</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#4A90E2] mb-1">100%</div>
+                <div className="text-sm text-gray-400">Precisão</div>
+              </div>
+            </div>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
-            Automação e Inteligência
-            <br />
-            <span className="text-[#4A90E2]">para Empresas</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto leading-snug font-medium">
-            Tecnologia que potencializa equipes, transforma processos e gera crescimento previsível.
-          </p>
 
-          <p className="text-base md:text-lg text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Soluções inteligentes que reduzem tarefas, aumentam eficiência e integram sua operação de ponta a ponta.
-            Automação, IA, software e performance comercial trabalhando juntos para criar empresas mais rápidas, mais produtivas e mais escaláveis.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              className="bg-[#F5A623] hover:bg-[#E09515] text-white text-lg px-10 py-6 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#F5A623]/20"
-            >
-              Quero transformar minha empresa
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="border-2 border-[#4A90E2] text-white hover:bg-[#4A90E2]/10 text-lg px-10 py-6 font-semibold transition-all duration-300 hover:scale-105"
-            >
-              Ver soluções
-            </Button>
-          </div>
-        </div>
+          {/* Right Visual */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" 
+                alt="Dashboard de Automação"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+            </div>
+            
+            {/* Floating Cards */}
+            <div className="absolute -top-4 -left-4 bg-[#151518] border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-xl animate-float">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#4A90E2]/20 rounded-lg flex items-center justify-center">
+                  <Zap className="h-6 w-6 text-[#4A90E2]" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold">RPA Ativo</div>
+                  <div className="text-xs text-gray-400">5.2k processos/dia</div>
+                </div>
+              </div>
+            </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-white/50 rounded-full" />
+            <div className="absolute -bottom-4 -right-4 bg-[#151518] border border-white/10 rounded-xl p-4 backdrop-blur-xl shadow-xl" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#F5A623]/20 rounded-lg flex items-center justify-center">
+                  <TrendingUp className="h-6 w-6 text-[#F5A623]" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold">Eficiência</div>
+                  <div className="text-xs text-gray-400">+150% crescimento</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
