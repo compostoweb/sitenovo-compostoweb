@@ -349,10 +349,10 @@ const Home = () => {
           
           <Button 
             size="lg"
-            className="bg-[#F5A623] hover:bg-[#E09515] text-white text-xl px-12 py-8 font-bold transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-[#F5A623]/30"
+            className="bg-[#F5A623] hover:bg-[#E09515] text-white text-base px-10 py-6 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#F5A623]/20"
           >
             Quero falar com um especialista
-            <ArrowRight className="ml-3 h-6 w-6" />
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </section>
