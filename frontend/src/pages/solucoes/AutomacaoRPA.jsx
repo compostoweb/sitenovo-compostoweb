@@ -72,6 +72,40 @@ const AutomacaoRPA = () => {
         </div>
       </section>
 
+      {/* Visual Section */}
+      <section className="py-24 px-6 bg-[#0f0f11]">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1752614671173-1625eb03a0e1?w=800&q=80" 
+                alt="RPA em ação"
+                className="w-full h-auto"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b]/80 via-transparent to-transparent" />
+            </div>
+            
+            <div>
+              <h2 className="text-3xl font-bold mb-6">
+                Automação que <span className="text-[#4A90E2]">funciona</span>
+              </h2>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Nossos robôs de software trabalham 24/7, executando tarefas com precisão absoluta e velocidade incomparável. 
+                Libere sua equipe para focar no que realmente importa: estratégia e inovação.
+              </p>
+              <div className="space-y-3">
+                {['Redução de 80% no tempo de processamento', 'Zero erros humanos', 'ROI médio em 6 meses'].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-[#4A90E2] rounded-full" />
+                    <span className="text-sm text-gray-300">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases Section */}
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
