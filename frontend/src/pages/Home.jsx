@@ -294,8 +294,8 @@ const Home = () => {
       {/* Results Section */}
       <section className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 fade-in-section">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-16 fade-in-section">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Resultados que <span className="text-[#F5A623]">entregamos</span>
             </h2>
           </div>
