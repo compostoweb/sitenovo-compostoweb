@@ -95,23 +95,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-white">
-      {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/cka8rhn4_Logo%20nova%20-%20Composto%20Web%20%28500%20x%20100%20px%29.png" 
-              alt="Composto Web" 
-              className="h-8"
-            />
-          </div>
-          <Button 
-            className="bg-[#F5A623] hover:bg-[#E09515] text-white font-semibold px-8 transition-all duration-300 hover:scale-105"
-          >
-            Fale Conosco
-          </Button>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
