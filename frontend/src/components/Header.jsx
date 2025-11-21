@@ -71,8 +71,9 @@ const Header = () => {
                     <Link
                       key={subindex}
                       to={subitem.path}
-                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#4A90E2] transition-colors whitespace-nowrap"
+                      className="flex items-center gap-2 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#4A90E2] transition-colors whitespace-nowrap"
                     >
+                      <span className="text-[#4A90E2]">•</span>
                       {subitem.label}
                     </Link>
                   ))}
