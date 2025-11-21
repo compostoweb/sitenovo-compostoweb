@@ -59,7 +59,7 @@ const Home = () => {
     },
     {
       icon: Cloud,
-      image: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=600&q=80',
       title: 'Software e Cloud Computing para Empresas',
       description: 'Sistemas internos, integrações via API, cloud moderna, microsserviços e infraestrutura escalável. A tecnologia deixa de ser um problema e vira alavanca de crescimento.'
     },
