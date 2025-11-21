@@ -433,39 +433,88 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* Final CTA Section - New Design */}
       <section className="py-24 px-6 bg-[#0f0f11] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#4A90E2]/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-[#F5A623]/20 rounded-full blur-3xl" />
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle, #4A90E2 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }} />
         </div>
-        
-        <div className="relative max-w-5xl mx-auto text-center fade-in-section">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Está pronto para elevar sua empresa
-            <br />
-            <span className="text-[#4A90E2]">a outro nível?</span>
-          </h2>
-          
-          <div className="mb-10 space-y-2">
-            <p className="text-lg text-gray-300">
-              A automação certa transforma operações.
-            </p>
-            <p className="text-lg text-gray-300">
-              A inteligência certa transforma resultados.
-            </p>
-            <p className="text-lg text-gray-300">
-              A tecnologia certa transforma negócios.
-            </p>
+
+        <div className="relative max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-[#4A90E2]/10 via-[#151518] to-[#F5A623]/10 border border-white/10 rounded-3xl p-12 md:p-16 fade-in-section">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Content */}
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-[#F5A623]/10 border border-[#F5A623]/20 rounded-full">
+                  <Rocket className="h-4 w-4 text-[#F5A623]" />
+                  <span className="text-sm font-medium text-[#F5A623]">Transformação Digital</span>
+                </div>
+
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                  Pronto para
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] to-[#F5A623]">
+                    transformar
+                  </span>
+                  <br />
+                  seu negócio?
+                </h2>
+                
+                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                  Junte-se às empresas que já automatizam processos, aumentam eficiência e crescem de forma previsível com nossa tecnologia.
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  {[
+                    'Consultoria gratuita com especialistas',
+                    'Diagnóstico completo de automação',
+                    'ROI calculado e transparente'
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-6 h-6 bg-[#4A90E2]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 className="h-4 w-4 text-[#4A90E2]" />
+                      </div>
+                      <span className="text-sm text-gray-300">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button 
+                  size="lg"
+                  className="bg-[#F5A623] hover:bg-[#E09515] text-white text-lg px-10 py-7 font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-[#F5A623]/30"
+                >
+                  Agendar Conversa Gratuita
+                  <ArrowRight className="ml-2 h-6 w-6" />
+                </Button>
+              </div>
+
+              {/* Right Visual */}
+              <div className="relative">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" 
+                    alt="Analytics Dashboard"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+                </div>
+
+                {/* Floating stats */}
+                <div className="absolute -bottom-6 -left-6 bg-[#151518] border border-white/10 rounded-xl p-4 shadow-xl backdrop-blur-xl">
+                  <div className="text-3xl font-bold text-[#4A90E2] mb-1">+150%</div>
+                  <div className="text-xs text-gray-400">Produtividade Média</div>
+                </div>
+
+                <div className="absolute -top-6 -right-6 bg-[#151518] border border-white/10 rounded-xl p-4 shadow-xl backdrop-blur-xl">
+                  <div className="text-3xl font-bold text-[#F5A623] mb-1">6 meses</div>
+                  <div className="text-xs text-gray-400">ROI Médio</div>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <Button 
-            size="lg"
-            className="bg-[#F5A623] hover:bg-[#E09515] text-white text-base px-10 py-6 font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#F5A623]/20"
-          >
-            Quero falar com um especialista
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </section>
 
