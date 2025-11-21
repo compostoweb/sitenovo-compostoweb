@@ -254,11 +254,12 @@ const Home = () => {
       <section className="py-32 px-6 bg-[#0f0f11] relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 fade-in-section">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Mapeamos. Automatizamos.
-              <br />
-              <span className="text-[#4A90E2]">Integramos. Escalamos.</span>
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">
+              Como funciona
             </h2>
+            <p className="text-2xl text-[#4A90E2] font-semibold">
+              Mapeamos, automatizamos, integramos e escalamos
+            </p>
           </div>
 
           <div className="relative">
