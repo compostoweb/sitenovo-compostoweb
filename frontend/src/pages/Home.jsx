@@ -70,10 +70,10 @@ const Home = () => {
   const differentials = [
     { icon: Cpu, text: 'Inteligência aplicada ao negócio' },
     { icon: Zap, text: 'Processos que funcionam sozinhos' },
-    { icon: Rocket, text: 'Vendas mais rápidas' },
-    { icon: Shield, text: 'Operações mais leves' },
+    { icon: Rocket, text: 'Vendas mais rápidas e organizadas' },
+    { icon: Shield, text: 'Operações mais leves e produtivas' },
     { icon: TrendingUp, text: 'Crescimento previsível' },
-    { icon: CheckCircle2, text: 'Integração de ponta a ponta' }
+    { icon: CheckCircle2, text: 'Integração completa entre áreas e sistemas' }
   ];
 
   const steps = [
