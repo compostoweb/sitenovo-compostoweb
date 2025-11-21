@@ -340,28 +340,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0a0a0b] border-t border-white/5 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/meum1uho_Favicon%20Composto%20Web%20-%20Nov25.png" 
-                alt="Composto Web" 
-                className="h-10 w-10"
-              />
-              <img 
-                src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/cka8rhn4_Logo%20nova%20-%20Composto%20Web%20%28500%20x%20100%20px%29.png" 
-                alt="Composto Web" 
-                className="h-7"
-              />
-            </div>
-            <p className="text-gray-500 text-sm">
-              © 2025 Composto Web. Todos os direitos reservados.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
