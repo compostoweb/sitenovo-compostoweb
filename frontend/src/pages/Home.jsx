@@ -300,18 +300,18 @@ const Home = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map((result, index) => (
               <Card 
                 key={index}
-                className="fade-in-section bg-[#151518] border-white/5 hover:border-[#F5A623]/50 transition-all duration-500 hover:scale-105 group text-center"
+                className="fade-in-section bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10 hover:border-[#F5A623]/50 transition-all duration-500 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-[#F5A623]/10 group text-center"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                <CardContent className="p-10">
-                  <div className="mb-6 inline-flex p-6 bg-[#F5A623]/10 rounded-2xl group-hover:bg-[#F5A623]/20 transition-colors duration-300">
-                    <result.icon className="h-12 w-12 text-[#F5A623]" strokeWidth={1.5} />
+                <CardContent className="p-8">
+                  <div className="mb-5 inline-flex p-4 bg-[#F5A623]/10 rounded-xl group-hover:bg-[#F5A623]/20 transition-colors duration-300">
+                    <result.icon className="h-8 w-8 text-[#F5A623]" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl font-bold group-hover:text-[#F5A623] transition-colors duration-300">
+                  <h3 className="text-base font-bold group-hover:text-[#F5A623] transition-colors duration-300 leading-snug">
                     {result.title}
                   </h3>
                 </CardContent>
