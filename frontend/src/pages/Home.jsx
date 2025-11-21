@@ -48,22 +48,22 @@ const Home = () => {
     {
       icon: Zap,
       title: 'Automação RPA e Eficiência Operacional',
-      description: 'Robôs e integrações que eliminam tarefas repetitivas e aceleram processos internos.'
+      description: 'Robôs e fluxos inteligentes que eliminam tarefas repetitivas e aceleram processos internos. Sua operação funciona com mais precisão, menos falhas e muito mais velocidade.'
     },
     {
       icon: TrendingUp,
       title: 'Inteligência Comercial e Automação de Vendas',
-      description: 'IA comercial, CRM estruturado, cadências inteligentes, MQL pronto, follow-up automático e treinamento para vendas previsíveis.'
+      description: 'Organização comercial, IA para priorização de leads, cadências automáticas e CRM eficiente. Seu time vende mais com menos esforço.'
     },
     {
       icon: Cloud,
       title: 'Software e Cloud Computing para Empresas',
-      description: 'Sistemas internos, integrações com APIs, microsserviços, cloud e soluções que sustentam TI.'
+      description: 'Sistemas internos, integrações via API, cloud moderna, microsserviços e infraestrutura escalável. A tecnologia deixa de ser um problema e vira alavanca de crescimento.'
     },
     {
       icon: Target,
       title: 'Marketing de Performance Integrado à Automação',
-      description: 'Captação, qualificação e agendamento automático. Leads deixam de ser crus e viram oportunidade real.'
+      description: 'Não entregamos leads crus. Entregamos MQL ou agendamento pronto com triagem inteligente e automação de ponta a ponta.'
     }
   ];
 
