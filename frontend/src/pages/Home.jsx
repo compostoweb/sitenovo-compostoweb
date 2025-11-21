@@ -85,12 +85,12 @@ const Home = () => {
   ];
 
   const results = [
-    { icon: TrendingUp, title: 'Mais produtividade' },
-    { icon: CheckCircle2, title: 'Menos erros' },
-    { icon: Clock, title: 'Operações 24 horas' },
-    { icon: BarChart3, title: 'Mais vendas' },
-    { icon: Rocket, title: 'Processos escaláveis' },
-    { icon: DollarSign, title: 'Redução de custos' }
+    { icon: TrendingUp, title: 'Aumento significativo da produtividade' },
+    { icon: CheckCircle2, title: 'Redução de erros operacionais' },
+    { icon: Clock, title: 'Processos funcionando 24 horas' },
+    { icon: BarChart3, title: 'Vendas mais previsíveis e eficientes' },
+    { icon: DollarSign, title: 'Redução de custos e retrabalhos' },
+    { icon: Rocket, title: 'Escalabilidade real com tecnologia bem aplicada' }
   ];
 
   return (
