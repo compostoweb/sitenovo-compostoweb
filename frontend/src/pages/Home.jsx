@@ -329,20 +329,20 @@ const Home = () => {
         </div>
         
         <div className="relative max-w-5xl mx-auto text-center fade-in-section">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             Está pronto para elevar sua empresa
             <br />
             <span className="text-[#4A90E2]">a outro nível?</span>
           </h2>
           
-          <div className="mb-12 space-y-3">
-            <p className="text-2xl text-gray-300">
+          <div className="mb-10 space-y-2">
+            <p className="text-lg text-gray-300">
               A automação certa transforma operações.
             </p>
-            <p className="text-2xl text-gray-300">
+            <p className="text-lg text-gray-300">
               A inteligência certa transforma resultados.
             </p>
-            <p className="text-2xl text-gray-300">
+            <p className="text-lg text-gray-300">
               A tecnologia certa transforma negócios.
             </p>
           </div>
