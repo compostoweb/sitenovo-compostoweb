@@ -96,14 +96,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0b] text-white">
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-[#0a0a0b]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="fixed top-0 w-full z-50 bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/meum1uho_Favicon%20Composto%20Web%20-%20Nov25.png" 
-              alt="Composto Web" 
-              className="h-10 w-10"
-            />
+          <div className="flex items-center">
             <img 
               src="https://customer-assets.emergentagent.com/job_8d9190b7-1684-4b12-b017-ddf1e511962c/artifacts/cka8rhn4_Logo%20nova%20-%20Composto%20Web%20%28500%20x%20100%20px%29.png" 
               alt="Composto Web" 
