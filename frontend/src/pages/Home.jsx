@@ -221,7 +221,7 @@ const Home = () => {
       </section>
 
       {/* Our Differential Section */}
-      <section className="py-32 px-6 relative">
+      <section className="py-24 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 fade-in-section">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
