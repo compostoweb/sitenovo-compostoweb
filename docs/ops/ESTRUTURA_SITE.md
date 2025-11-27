@@ -1,3 +1,4 @@
+````markdown
 # Estrutura Completa do Site - COMPOSTO WEB
 
 ## 📁 Hierarquia de Páginas
@@ -179,3 +180,5 @@ Todas as rotas configuradas em `/app/frontend/src/App.js`:
 4. Implementar SEO meta tags
 5. Adicionar Analytics
 6. Implementar cookies consent
+
+````
