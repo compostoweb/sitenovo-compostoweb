@@ -82,6 +82,21 @@ npm run build
 3) No Portainer:
 - Suba as imagens para um registry (ou use build direto no host)
 - Crie stacks/services: um serviço para o backend (porta 8000) e outro para o frontend (serving em 80/443)
+### 3.a) Usando o docker-compose.production.yml (no host ou no Portainer stack)
+
+1. Na raiz do repositório há um arquivo `docker-compose.production.yml` que cria serviços:
+	- db (Postgres)
+	- backend (built da pasta backend)
+	- frontend (construído a partir do Dockerfile em frontend e servido pelo nginx)
+
+2. Para subir no host (console):
+
+```bash
+docker compose -f docker-compose.production.yml up -d --build
+```
+
+3. No Portainer: crie uma nova Stack e cole o conteúdo do arquivo `docker-compose.production.yml` ou faça o upload. Ajuste variáveis de ambiente se necessário.
+
  - Configure variáveis de ambiente (POSTGRES_URL, CORS_ORIGINS) no serviço do backend
 
 4) Rede e persistência:
@@ -94,8 +109,8 @@ npm run build
 EasyPanel é uma interface para gerenciar containers — o processo é semelhante a usar Portainer:
 
 - Crie ou envie a imagem Docker do backend e frontend (ou use templates do EasyPanel)
-- Configure variáveis de ambiente para o backend (MONGO_URL/DB_NAME)
-- Crie volumes para persistência (por exemplo, dados do Mongo)
+- Configure variáveis de ambiente para o backend (POSTGRES_URL)
+- Crie volumes para persistência (por exemplo, dados do Postgres)
 - Configure redes ou proxies (se necessário) para expor frontend e backend
 
 ---
@@ -104,7 +119,7 @@ EasyPanel é uma interface para gerenciar containers — o processo é semelhant
 
 Sim, é totalmente possível usar PostgreSQL em vez do MongoDB — cada escolha tem tradeoffs:
 
-- MongoDB (NoSQL): fácil de mapear documentos JSON e usar com drivers async (motor). Bom para dados document-based.
+- MongoDB (NoSQL): ainda é uma opção documental — se quiser usar Mongo, posso re-adaptar o backend para suportar ambos.
 - PostgreSQL (SQL): ACID, consultas relacionais, transações e suporte a SQL. Recomendado quando você precisa de integridade relacional e consultas complexas.
 
 Se quiser migrar para Postgres eu recomendo:
@@ -118,6 +133,6 @@ Posso implementar essa migração (ou um fallback que suporte Mongo e Postgres) 
 
 ## 6) Observações finais
 
-- O backend atualmente tem fallback automático: se `MONGO_URL` não estiver definido, ele usa memória.
+ - O backend atualmente tem fallback automático: se `POSTGRES_URL` não estiver definido, ele usa memória.
 - Se desejar persistência simples, eu recomendo migrar para SQLite (fácil de configurar) ou Postgres para produção.
 - Posso implementar o suporte a Postgres (ou ambos) e criar scripts de migração caso deseje.
