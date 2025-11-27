@@ -97,6 +97,18 @@ docker compose -f docker-compose.production.yml up -d --build
 
 3. No Portainer: crie uma nova Stack e cole o conteúdo do arquivo `docker-compose.production.yml` ou faça o upload. Ajuste variáveis de ambiente se necessário.
 
+Para subir apenas o backend (ex.: em Portainer/EasyPanel) você pode usar o `docker-compose.backend.yml`:
+
+```bash
+docker compose -f docker-compose.backend.yml up -d --build
+```
+
+E para subir apenas o frontend estático com nginx, use `docker-compose.frontend.yml`:
+
+```bash
+docker compose -f docker-compose.frontend.yml up -d --build
+```
+
  - Configure variáveis de ambiente (POSTGRES_URL, CORS_ORIGINS) no serviço do backend
 
 4) Rede e persistência:
