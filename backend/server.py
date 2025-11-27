@@ -1,6 +1,7 @@
 ﻿from fastapi import FastAPI, APIRouter
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
+import importlib
 import os
 import logging
 from pathlib import Path
@@ -14,9 +15,25 @@ ROOT_DIR = Path(__file__).parent
 # loads .env (optional) so CORS_ORIGINS can be configured, but DB vars are not required
 load_dotenv(ROOT_DIR / '.env')
 
-# In-memory store used instead of MongoDB
-# This keeps the same API footprint but removes the external DB requirement
+# Storage options
 STATUS_STORE: list[dict] = []
+USE_MONGO = False
+client = None
+db = None
+
+# Try to set up MongoDB client if environment variable present and module available
+if os.environ.get('MONGO_URL'):
+    try:
+        motor = importlib.import_module('motor.motor_asyncio')
+        AsyncIOMotorClient = motor.AsyncIOMotorClient
+        mongo_url = os.environ['MONGO_URL']
+        client = AsyncIOMotorClient(mongo_url)
+        db_name = os.environ.get('DB_NAME', 'test_database')
+        db = client[db_name]
+        USE_MONGO = True
+    except Exception:
+        # if motor not installed or connection problem, fallback to in-memory store
+        USE_MONGO = False
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -46,14 +63,35 @@ async def create_status_check(input: StatusCheckCreate):
     status_dict = input.model_dump()
     status_obj = StatusCheck(**status_dict)
 
-    # Persist into the in-memory list (simple, non-persistent)
     doc = status_obj.model_dump()
-    STATUS_STORE.append(doc)
+    if USE_MONGO and db is not None:
+        # When using MongoDB, store a serializable document
+        db_doc = dict(doc)
+        # Convert datetime to ISO string for Mongo
+        if isinstance(db_doc.get('timestamp'), datetime):
+            db_doc['timestamp'] = db_doc['timestamp'].isoformat()
+        await db.status_checks.insert_one(db_doc)
+    else:
+        # Persist into the in-memory list (simple, non-persistent)
+        STATUS_STORE.append(doc)
+
     return status_obj
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    # Return the in-memory status checks
+    # If using MongoDB, fetch from DB and convert timestamps
+    if USE_MONGO and db is not None:
+        status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
+        # Convert ISO string timestamps back to datetime objects
+        for check in status_checks:
+            if isinstance(check.get('timestamp'), str):
+                try:
+                    check['timestamp'] = datetime.fromisoformat(check['timestamp'])
+                except Exception:
+                    pass
+        return status_checks
+
+    # Fallback: return the in-memory status checks
     return STATUS_STORE
 
 # Include the router in the main app
@@ -76,5 +114,6 @@ logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    # nothing to close when using in-memory store
-    pass
+    # Close MongoDB client if used
+    if client is not None:
+        client.close()
