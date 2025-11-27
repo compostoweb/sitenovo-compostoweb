@@ -19,6 +19,18 @@ Restauração (pg_restore):
 pg_restore -h localhost -U postgres -d postgres -v "/caminho/para/backup/postgres_backup.dump"
 ```
 
+### Migrações com Alembic
+
+Alembic foi configurado no backend para aplicar migrações de schema.
+
+Exemplo para rodar localmente (no backend venv):
+
+```powershell
+cd backend
+.\.venv\Scripts\Activate
+alembic -c alembic.ini upgrade head
+```
+
 ## Export / Deploy (passo a passo)
 
 1. Gere build frontend:

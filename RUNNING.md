@@ -34,6 +34,19 @@ python -m pip install -r requirements.txt
 .\.venv\Scripts\python -m uvicorn backend.server:app --reload --host 127.0.0.1 --port 8000
 ```
 
+### Migrações (Alembic)
+
+Se você estiver usando Postgres, rode as migrações para criar as tabelas:
+
+```powershell
+# instale alembic no venv se necessário
+.\.venv\Scripts\python -m pip install alembic
+# execute as migrações a partir da pasta backend
+Set-Location -Path backend
+Set-Item -Path Env:POSTGRES_URL -Value "postgresql://postgres:postgres@localhost:5432/postgres"
+alembic -c alembic.ini upgrade head
+```
+
 Frontend (Windows / PowerShell):
 
 ```powershell
