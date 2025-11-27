@@ -1,0 +1,33 @@
+{
+  "name": "sitenovo-compostoweb",
+  "version": "1.0.0",
+  "description": "Projeto Composto Web - Frontend React e Backend FastAPI",
+  "private": true,
+  "scripts": {
+    "start": "npm run start:frontend",
+    "start:frontend": "cd frontend && npx craco start",
+    "start:backend": "cd backend && python -m uvicorn server:app --reload --host 0.0.0.0 --port 8000",
+    "start:all": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npx craco build",
+    "install:frontend": "cd frontend && npm install --legacy-peer-deps",
+    "install:backend": "cd backend && pip install -r requirements.txt",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "test": "npm run test:frontend",
+    "test:frontend": "cd frontend && npx craco test"
+  },
+  "keywords": [
+    "react",
+    "fastapi",
+    "mongodb",
+    "composto-web"
+  ],
+  "author": "Composto Web",
+  "license": "ISC",
+  "devDependencies": {
+    "@craco/craco": "^5.9.0",
+    "concurrently": "^8.2.2"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/compostoweb/sitenovo-compostoweb.git"
+}
