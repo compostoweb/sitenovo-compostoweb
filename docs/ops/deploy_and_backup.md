@@ -2,21 +2,21 @@ Deploy e Backup (Resumo)
 
 Este documento reúne instruções práticas de deploy e backup para o projeto Composto Web.
 
-Observação: o backend suporta fallback entre armazenamento em memória e MongoDB. Se você optar por usar MongoDB em produção, configure backups regulares.
+Observação: o backend suporta fallback entre armazenamento em memória e PostgreSQL. Se você optar por usar Postgres em produção, configure backups regulares.
 
-## Backup (MongoDB - opcional)
+## Backup (Postgres - opcional)
 
-Exemplo de export (mongodump):
+Exemplo de backup (pg_dump):
 
 ```bash
-mongodump --uri="mongodb://localhost:27017" --db=test_database --out=/caminho/para/backup
-tar -czf mongodb_backup_$(date +%Y%m%d).tar.gz /caminho/para/backup
+pg_dump -h localhost -U postgres -d postgres -F c -b -v -f "/caminho/para/backup/postgres_backup.dump"
+tar -czf postgres_backup_$(date +%Y%m%d).tar.gz /caminho/para/backup/postgres_backup.dump
 ```
 
-Restauração (mongorestore):
+Restauração (pg_restore):
 
 ```bash
-mongorestore --uri="mongodb://localhost:27017" --db=test_database /caminho/para/backup/test_database/
+pg_restore -h localhost -U postgres -d postgres -v "/caminho/para/backup/postgres_backup.dump"
 ```
 
 ## Export / Deploy (passo a passo)

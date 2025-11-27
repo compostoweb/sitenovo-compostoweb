@@ -10,9 +10,9 @@ O repositório contém:
 - backend/ — FastAPI (Python)
 - frontend/ — React (Create React App + CRACO)
 
-O backend suporta Fallback entre Memória e MongoDB:
-- Se existir a variável de ambiente MONGO_URL, o backend tentará conectar ao MongoDB.
-- Caso contrário, o backend usa um armazenamento em memória (sem persistência entre reinícios).
+O backend suporta Fallback entre Memória e PostgreSQL:
+ - Se existir a variável de ambiente POSTGRES_URL, o backend tentará conectar ao PostgreSQL.
+ - Caso contrário, o backend usa um armazenamento em memória (sem persistência entre reinícios).
 
 Você pode optar por usar Postgres em vez de Mongo — veja a seção "Postgres vs Mongo" mais abaixo.
 
@@ -30,7 +30,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-# opcional: configure backend/.env com MONGO_URL e DB_NAME se quiser testar com Mongo
+# opcional: configure backend/.env com POSTGRES_URL se quiser testar com Postgres (ex.: postgresql://user:pass@localhost:5432/dbname)
 .\.venv\Scripts\python -m uvicorn backend.server:app --reload --host 127.0.0.1 --port 8000
 ```
 
@@ -82,10 +82,10 @@ npm run build
 3) No Portainer:
 - Suba as imagens para um registry (ou use build direto no host)
 - Crie stacks/services: um serviço para o backend (porta 8000) e outro para o frontend (serving em 80/443)
-- Configure variáveis de ambiente (MONGO_URL, DB_NAME, CORS_ORIGINS) no serviço do backend
+ - Configure variáveis de ambiente (POSTGRES_URL, CORS_ORIGINS) no serviço do backend
 
 4) Rede e persistência:
-- Se usar Mongo em container, crie também um serviço/volume para persistência do MongoDB
+ - Se usar Postgres em container, crie também um serviço/volume para persistência do banco
 
 ---
 

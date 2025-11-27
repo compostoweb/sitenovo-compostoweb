@@ -17,23 +17,37 @@ load_dotenv(ROOT_DIR / '.env')
 
 # Storage options
 STATUS_STORE: list[dict] = []
-USE_MONGO = False
-client = None
-db = None
+USE_POSTGRES = False
+database = None
+metadata = None
+status_checks_table = None
 
-# Try to set up MongoDB client if environment variable present and module available
-if os.environ.get('MONGO_URL'):
+# Try to set up Postgres (async) if POSTGRES_URL is present
+POSTGRES_URL = os.environ.get('POSTGRES_URL')
+if POSTGRES_URL:
     try:
-        motor = importlib.import_module('motor.motor_asyncio')
-        AsyncIOMotorClient = motor.AsyncIOMotorClient
-        mongo_url = os.environ['MONGO_URL']
-        client = AsyncIOMotorClient(mongo_url)
-        db_name = os.environ.get('DB_NAME', 'test_database')
-        db = client[db_name]
-        USE_MONGO = True
+        databases = importlib.import_module('databases')
+        sqlalchemy = importlib.import_module('sqlalchemy')
+
+        database = databases.Database(POSTGRES_URL)
+        metadata = sqlalchemy.MetaData()
+
+        status_checks_table = sqlalchemy.Table(
+            'status_checks',
+            metadata,
+            sqlalchemy.Column('id', sqlalchemy.String, primary_key=True),
+            sqlalchemy.Column('client_name', sqlalchemy.String),
+            sqlalchemy.Column('timestamp', sqlalchemy.String),
+        )
+
+        # create table if not exists (sync create via SQLAlchemy engine)
+        engine = sqlalchemy.create_engine(POSTGRES_URL.replace('postgresql+asyncpg', 'postgresql'))
+        metadata.create_all(engine)
+
+        USE_POSTGRES = True
     except Exception:
-        # if motor not installed or connection problem, fallback to in-memory store
-        USE_MONGO = False
+        # If not available or connection failed, fallback to in-memory store
+        USE_POSTGRES = False
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -64,13 +78,14 @@ async def create_status_check(input: StatusCheckCreate):
     status_obj = StatusCheck(**status_dict)
 
     doc = status_obj.model_dump()
-    if USE_MONGO and db is not None:
-        # When using MongoDB, store a serializable document
+    if USE_POSTGRES and database is not None and status_checks_table is not None:
+        # When using Postgres (via databases), insert the record
         db_doc = dict(doc)
-        # Convert datetime to ISO string for Mongo
+        # Convert datetime to ISO string for storage
         if isinstance(db_doc.get('timestamp'), datetime):
             db_doc['timestamp'] = db_doc['timestamp'].isoformat()
-        await db.status_checks.insert_one(db_doc)
+        query = status_checks_table.insert().values(**db_doc)
+        await database.execute(query)
     else:
         # Persist into the in-memory list (simple, non-persistent)
         STATUS_STORE.append(doc)
@@ -79,10 +94,12 @@ async def create_status_check(input: StatusCheckCreate):
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    # If using MongoDB, fetch from DB and convert timestamps
-    if USE_MONGO and db is not None:
-        status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-        # Convert ISO string timestamps back to datetime objects
+    # If using Postgres, fetch from DB and convert timestamps
+    if USE_POSTGRES and database is not None and status_checks_table is not None:
+        query = status_checks_table.select()
+        rows = await database.fetch_all(query)
+        # Convert rows to dicts and parse timestamp
+        status_checks = [dict(r) for r in rows]
         for check in status_checks:
             if isinstance(check.get('timestamp'), str):
                 try:
@@ -114,6 +131,12 @@ logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    # Close MongoDB client if used
-    if client is not None:
-        client.close()
+    # Disconnect Postgres connection if used
+    if database is not None:
+        await database.disconnect()
+
+
+@app.on_event("startup")
+async def startup_db_client():
+    if USE_POSTGRES and database is not None:
+        await database.connect()
