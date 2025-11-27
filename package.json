@@ -19,9 +19,9 @@
   "keywords": [
     "react",
     "fastapi",
-    "mongodb",
     "composto-web"
   ],
+  "packageManager": "npm@9",
   "author": "Composto Web",
   "license": "ISC",
   "devDependencies": {
