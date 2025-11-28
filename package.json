@@ -24,7 +24,9 @@
   "packageManager": "npm@9",
   "author": "Composto Web",
   "license": "ISC",
-  
   "main": "index.js",
-  "repository": "https://github.com/compostoweb/sitenovo-compostoweb.git"
+  "repository": "https://github.com/compostoweb/sitenovo-compostoweb.git",
+  "dependencies": {
+    "docker": "^1.0.0"
+  }
 }

@@ -7,6 +7,7 @@ import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List
+import sqlalchemy
 import uuid
 from datetime import datetime, timezone
 
@@ -19,8 +20,17 @@ load_dotenv(ROOT_DIR / '.env')
 STATUS_STORE: list[dict] = []
 USE_POSTGRES = False
 database = None
-metadata = None
-status_checks_table = None
+
+# SQLAlchemy metadata and table definition (always declared so Alembic can import it)
+metadata = sqlalchemy.MetaData()
+status_checks_table = sqlalchemy.Table(
+    'status_checks',
+    metadata,
+    sqlalchemy.Column('id', sqlalchemy.String, primary_key=True),
+    sqlalchemy.Column('client_name', sqlalchemy.String),
+    # Use a timezone-aware timestamp so Postgres maps it to timestamptz
+    sqlalchemy.Column('timestamp', sqlalchemy.DateTime(timezone=True)),
+)
 
 # Try to set up Postgres (async) if POSTGRES_URL is present
 POSTGRES_URL = os.environ.get('POSTGRES_URL')
@@ -30,15 +40,6 @@ if POSTGRES_URL:
         sqlalchemy = importlib.import_module('sqlalchemy')
 
         database = databases.Database(POSTGRES_URL)
-        metadata = sqlalchemy.MetaData()
-
-        status_checks_table = sqlalchemy.Table(
-            'status_checks',
-            metadata,
-            sqlalchemy.Column('id', sqlalchemy.String, primary_key=True),
-            sqlalchemy.Column('client_name', sqlalchemy.String),
-            sqlalchemy.Column('timestamp', sqlalchemy.String),
-        )
 
         # create table if not exists (sync create via SQLAlchemy engine)
         engine = sqlalchemy.create_engine(POSTGRES_URL.replace('postgresql+asyncpg', 'postgresql'))
@@ -81,9 +82,7 @@ async def create_status_check(input: StatusCheckCreate):
     if USE_POSTGRES and database is not None and status_checks_table is not None:
         # When using Postgres (via databases), insert the record
         db_doc = dict(doc)
-        # Convert datetime to ISO string for storage
-        if isinstance(db_doc.get('timestamp'), datetime):
-            db_doc['timestamp'] = db_doc['timestamp'].isoformat()
+        # Store native datetime objects when using Postgres (databases+asyncpg supports this)
         query = status_checks_table.insert().values(**db_doc)
         await database.execute(query)
     else:
@@ -101,6 +100,7 @@ async def get_status_checks():
         # Convert rows to dicts and parse timestamp
         status_checks = [dict(r) for r in rows]
         for check in status_checks:
+            # If DB returned a string (older rows) try to parse it; otherwise leave native datetimes
             if isinstance(check.get('timestamp'), str):
                 try:
                     check['timestamp'] = datetime.fromisoformat(check['timestamp'])
