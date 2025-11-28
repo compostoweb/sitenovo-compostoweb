@@ -16,6 +16,7 @@ import {
   DollarSign
 } from 'lucide-react';
 
+
 const Home = () => {
   const [scrollY, setScrollY] = useState(0);
 
@@ -584,7 +585,7 @@ const Home = () => {
                   </div>
                 )}
               </div>
-            ))}
+            ))}*
           </div>
             
           <div className="text-center mt-12 fade-in-section">
@@ -598,6 +599,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      
 
       {/* Results Section */}
       <section className="py-24 px-6 relative">
@@ -742,3 +744,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
