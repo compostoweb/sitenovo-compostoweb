@@ -3,7 +3,7 @@
 # - Installs backend dependencies and runs uvicorn
 
 ### Stage: frontend build
-FROM node:18-alpine AS frontend-build
+FROM node:20-alpine AS frontend-build
 WORKDIR /app
 # copy package files first for caching
 COPY frontend/package.json frontend/package-lock.json ./
@@ -12,7 +12,7 @@ COPY frontend/ ./
 RUN npm run build
 
 ### Stage: runtime (Python backend + serve frontend static)
-FROM python:3.11-slim
+FROM python:3.10-slim
 WORKDIR /app
 
 # system deps for some python packages if needed
