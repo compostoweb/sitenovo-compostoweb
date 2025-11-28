@@ -106,6 +106,13 @@ npm run build
 
 ```bash
 docker compose -f docker-compose.production.yml up -d --build
+
+Nota: se você preferir empacotar frontend + backend em uma única imagem (por exemplo para EasyPanel usando a opção Dockerfile), existe um Dockerfile na raiz do projeto que:
+
+- Executa o build do `frontend` em uma etapa (node) e copia o resultado para `backend/static`.
+- Instala as dependências do `backend` e executa `uvicorn backend.server:app` expondo a aplicação na porta 8000.
+
+No EasyPanel escolha a **Dockerfile** e aponte para a raiz do repositório; a imagem produzida servirá a SPA e a API juntos (rota `/api`)
 ```
 
 3. No Portainer: crie uma nova Stack e cole o conteúdo do arquivo `docker-compose.production.yml` ou faça o upload. Ajuste variáveis de ambiente se necessário.

@@ -1,6 +1,8 @@
-﻿from fastapi import FastAPI, APIRouter
+﻿from fastapi import FastAPI, APIRouter, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
+from starlette.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import importlib
 import os
 import logging
@@ -113,6 +115,26 @@ async def get_status_checks():
 
 # Include the router in the main app
 app.include_router(api_router)
+
+# Serve frontend build when available
+static_path = ROOT_DIR / 'static'
+if static_path.exists():
+    app.mount('/static', StaticFiles(directory=str(static_path)), name='static')
+
+
+# If the build was copied into `backend/static`, serve the SPA index for non-/api routes.
+@app.get('/{full_path:path}', include_in_schema=False)
+async def spa_catch_all(full_path: str, request: Request):
+    # Let /api routes be handled by the router (they'll match first). Any other path tries to return index.html
+    if request.url.path.startswith('/api'):
+        # Let routing continue (should not normally reach here since /api routes are mounted first)
+        return {"detail": "Not found"}
+
+    index_file = static_path / 'index.html'
+    if index_file.exists():
+        return FileResponse(index_file)
+
+    return {"message": "Hello World"}
 
 app.add_middleware(
     CORSMiddleware,
