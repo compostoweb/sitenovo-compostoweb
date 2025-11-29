@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
-// --- IMPORTAÇÃO DA LOGO BRANCA LOCAL ---
+// --- IMPORTAÇÃO DAS IMAGENS DA PÁGINA ---
 // Ajuste a quantidade de "../" se necessário, dependendo de onde o Header.jsx está salvo.
 // Se Header.jsx está em src/components, use '../assets/lg-white-cw.png'
-import LogoWhite from '../assets/lg-white-cw.png';
-import LogoOficial from '../assets/lg-oficial-cw.png';
+import LogoWhite from '../assets/img/menu/lg-white-cw.png';
+import LogoOficial from '../assets/img/menu/lg-oficial-cw.png';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

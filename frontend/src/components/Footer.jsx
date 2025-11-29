@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LogoWhite from '../assets/img/menu/lg-white-cw.png';
 
 const Footer = () => {
   const footerSections = [
@@ -17,7 +18,7 @@ const Footer = () => {
       links: [
         { path: '/sobre/nossa-historia', label: 'Nossa História' },
         { path: '/sobre/manifesto', label: 'Manifesto' },
-        { path: '/clientes-cases', label: 'Clientes e Cases' },
+        { path: '/clientes-cases', label: 'Clientes ' },
         { path: '/blog', label: 'Blog' }
       ]
     },
@@ -45,7 +46,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <div className="mb-4">
               <img
-                src="https://customer-assets.emergentagent.com/job_digital-transform-29/artifacts/asok1h5a_Logo%20Texto%20branco%20nov25%20-%20Composto%20Web.png"
+                src={LogoWhite}
                 alt="Composto Web"
                 className="h-8"
               />
@@ -74,13 +75,13 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">© 2025 Composto Web. Todos os direitos reservados.</p>
-          <div className="flex gap-6">
+        <div className="border-t border-white/5 pt-8 flex flex-col md:text-center items-center justify-between gap-4">
+          <p className="text-gray-500 text-sm text-center">© 2026 Composto Web. Todos os direitos reservados.</p>
+          {/*<div className="flex gap-6">
             <Link to="/contato" className="text-gray-400 text-sm hover:text-[#4A90E2] transition-colors">
               Contato
             </Link>
-          </div>
+          </div>*/}
         </div>
       </div>
     </footer>
