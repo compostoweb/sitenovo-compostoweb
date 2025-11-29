@@ -58,6 +58,9 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Import contact router
+from routes.contact import router as contact_router
+
 
 # Define Models
 class StatusCheck(BaseModel):
@@ -112,6 +115,9 @@ async def get_status_checks():
 
     # Fallback: return the in-memory status checks
     return STATUS_STORE
+
+# Include contact router
+api_router.include_router(contact_router)
 
 # Include the router in the main app
 app.include_router(api_router)

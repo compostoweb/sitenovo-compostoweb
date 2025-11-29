@@ -125,9 +125,11 @@ const Header = () => {
 
           {/* DESKTOP CTA */}
           <div className="hidden lg:block">
-            <Button className="bg-[#F5A623] hover:bg-[#E09515] text-white font-semibold px-6 shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-105">
-              Fale Conosco
-            </Button>
+            <Link to="/contato">
+              <Button className="bg-[#F5A623] hover:bg-[#E09515] text-white font-semibold px-6 shadow-lg shadow-orange-500/20 transition-all duration-300 hover:scale-105">
+                Fale Conosco
+              </Button>
+            </Link>
           </div>
 
           {/* MOBILE MENU TRIGGER (Hambúrguer) */}
@@ -231,9 +233,11 @@ const Header = () => {
 
           {/* Footer Actions */}
           <div className="mt-8 space-y-6">
-            <Button className="w-full bg-[#F5A623] hover:bg-[#E09515] text-white font-bold py-6 text-lg shadow-[0_0_20px_rgba(245,166,35,0.2)] rounded-xl">
-              Fale Conosco
-            </Button>
+            <Link to="/contato" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button className="w-full bg-[#F5A623] hover:bg-[#E09515] text-white font-bold py-6 text-lg shadow-[0_0_20px_rgba(245,166,35,0.2)] rounded-xl">
+                Fale Conosco
+              </Button>
+            </Link>
             
             <div className="text-center">
               <p className="text-sm text-gray-500">© 2025 Composto Web</p>
