@@ -9,8 +9,8 @@ const Footer = () => {
       links: [
         { path: '/solucoes/automacao-rpa', label: 'Automação RPA' },
         { path: '/solucoes/inteligencia-comercial', label: 'Inteligência Comercial' },
-        { path: '/solucoes/software-cloud', label: 'Software Sob Medida' },
-        { path: '/solucoes/marketing-integrado', label: 'Cloud e DevOps' },
+        { path: '/solucoes/software-sob-medida', label: 'Software Sob Medida' },
+        { path: '/solucoes/cloud-devops', label: 'Cloud e DevOps' },
         { path: '/solucoes/marketing-integrado', label: 'Marketing Integrado' }
       ]
     },

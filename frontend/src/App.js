@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import AutomacaoRPA from './pages/solucoes/AutomacaoRPA';
 import InteligenciaComercial from './pages/solucoes/InteligenciaComercial';
 import SoftwareCloud from './pages/solucoes/SoftwareCloud';
+import CloudDevOps from './pages/solucoes/CloudDevOps';
 import MarketingIntegrado from './pages/solucoes/MarketingIntegrado';
 import NossaHistoria from './pages/sobre/NossaHistoria';
 import Manifesto from './pages/sobre/Manifesto';
@@ -32,7 +33,8 @@ function App() {
           {/* Soluções */}
           <Route path="/solucoes/automacao-rpa" element={<AutomacaoRPA />} />
           <Route path="/solucoes/inteligencia-comercial" element={<InteligenciaComercial />} />
-          <Route path="/solucoes/software-cloud" element={<SoftwareCloud />} />
+          <Route path="/solucoes/software-sob-medida" element={<SoftwareCloud />} />
+          <Route path="/solucoes/cloud-devops" element={<CloudDevOps />} />
           <Route path="/solucoes/marketing-integrado" element={<MarketingIntegrado />} />
           
           {/* Sobre */}

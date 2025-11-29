@@ -45,7 +45,8 @@ const Header = () => {
       submenu: [
         { path: '/solucoes/automacao-rpa', label: 'Automação RPA e Eficiência' },
         { path: '/solucoes/inteligencia-comercial', label: 'Inteligência Comercial' },
-        { path: '/solucoes/software-cloud', label: 'Software e Cloud Computing' },
+        { path: '/solucoes/software-sob-medida', label: 'Software Sob Medida' },
+        { path: '/solucoes/cloud-devops', label: 'Cloud e DevOps' },
         { path: '/solucoes/marketing-integrado', label: 'Marketing Integrado' }
       ]
     },
