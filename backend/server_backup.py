@@ -5,7 +5,6 @@ from starlette.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import importlib
 import os
-import sys
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
@@ -16,10 +15,6 @@ from datetime import datetime, timezone
 
 
 ROOT_DIR = Path(__file__).parent
-# Add parent directory to sys.path for Docker compatibility
-if str(ROOT_DIR.parent) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR.parent))
-
 # loads .env (optional) so CORS_ORIGINS can be configured, but DB vars are not required
 load_dotenv(ROOT_DIR / '.env')
 
@@ -63,8 +58,11 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
-# Import contact router (works in Docker with backend. prefix)
-from backend.routes.contact import router as contact_router
+# Import contact router
+try:
+    from backend.routes.contact import router as contact_router
+except ImportError:
+    from routes.contact import router as contact_router
 
 
 # Define Models
