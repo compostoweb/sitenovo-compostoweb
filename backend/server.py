@@ -1,4 +1,4 @@
-﻿from fastapi import FastAPI, APIRouter, Request
+from fastapi import FastAPI, APIRouter, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
@@ -59,7 +59,10 @@ app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 # Import contact router
-from routes.contact import router as contact_router
+try:
+    from backend.routes.contact import router as contact_router
+except ImportError:
+    from routes.contact import router as contact_router
 
 
 # Define Models
