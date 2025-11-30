@@ -4,7 +4,7 @@
 
 O formulário de contato do site envia emails através de um servidor SMTP. Siga os passos abaixo para configurar:
 
-### 1. Criar arquivo `.env`
+### 1. Criar arquivo `.env` e salvar dentro de backend
 
 Copie o arquivo `.env.example` e renomeie para `.env`:
 
