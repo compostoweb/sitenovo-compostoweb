@@ -130,10 +130,30 @@ app.include_router(api_router)
 # Serve frontend build when available
 static_path = ROOT_DIR / 'static'
 if static_path.exists():
-    # Mount the frontend build at the app root so paths like /static/js/... map correctly to
-    # files produced by Create React App (build/static/js/...). Mounting at '/' and enabling
-    # html=True lets StaticFiles serve index.html and all assets as expected in production.
-    app.mount('/', StaticFiles(directory=str(static_path), html=True), name='static')
+    # Serve compiled assets under /static (e.g., /static/js/...)
+    assets_dir = static_path / 'static'
+    if assets_dir.exists():
+        app.mount('/static', StaticFiles(directory=str(assets_dir), html=False), name='static')
+
+    # Serve favicon if present
+    favicon = static_path / 'favicon.ico'
+    if favicon.exists():
+        @app.get('/favicon.ico', include_in_schema=False)
+        async def favicon_route():
+            return FileResponse(favicon)
+
+    # Serve index.html at root
+    @app.get('/', include_in_schema=False)
+    async def index():
+        return FileResponse(static_path / 'index.html')
+
+    # SPA fallback: serve index.html for any non-API, non-static path
+    @app.get('/{path_name:path}', include_in_schema=False)
+    async def spa_fallback(path_name: str, request: Request):
+        if path_name.startswith('api') or path_name.startswith('static'):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404)
+        return FileResponse(static_path / 'index.html')
 
 app.add_middleware(
     CORSMiddleware,
