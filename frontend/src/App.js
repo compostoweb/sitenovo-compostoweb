@@ -23,11 +23,13 @@ import Setores from './pages/footer/Setores';
 import Parcerias from './pages/footer/Parcerias';
 import AdminBlog from './pages/admin/AdminBlog';
 import BlogPost from './pages/BlogPost';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
