@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, Request
+from fastapi import FastAPI, APIRouter, Request, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 
 
 ROOT_DIR = Path(__file__).parent
+logger = logging.getLogger(__name__)
 # Add parent directory to sys.path for Docker compatibility
 if str(ROOT_DIR.parent) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR.parent))
@@ -128,15 +129,52 @@ api_router.include_router(contact_router)
 app.include_router(api_router)
 
 # Serve frontend build when available
-static_path = ROOT_DIR / 'static'
-if static_path.exists():
+def _resolve_frontend_build_root() -> Path | None:
+    """Try to discover the frontend build folder that contains index.html.
+    Priority:
+    1. Env FRONTEND_BUILD_DIR
+    2. backend/static
+    3. <repo_root>/frontend/build
+    4. <repo_root>/project_export/static
+    """
+    # 1. Environment variable override
+    env_dir = os.environ.get('FRONTEND_BUILD_DIR')
+    if env_dir:
+        p = Path(env_dir)
+        if (p / 'index.html').exists():
+            return p
+
+    # 2. backend/static (current behavior in deploy)
+    p = ROOT_DIR / 'static'
+    if (p / 'index.html').exists():
+        return p
+
+    # 3. repo_root/frontend/build
+    repo_root = ROOT_DIR.parent
+    p = repo_root / 'frontend' / 'build'
+    if (p / 'index.html').exists():
+        return p
+
+    # 4. repo_root/project_export/static
+    p = repo_root / 'project_export' / 'static'
+    if (p / 'index.html').exists():
+        return p
+
+    return None
+
+frontend_root = _resolve_frontend_build_root()
+if frontend_root:
+    logger.info(f"Serving frontend from: {frontend_root}")
+
     # Serve compiled assets under /static (e.g., /static/js/...)
-    assets_dir = static_path / 'static'
+    assets_dir = frontend_root / 'static'
     if assets_dir.exists():
         app.mount('/static', StaticFiles(directory=str(assets_dir), html=False), name='static')
+    else:
+        logger.warning("Assets directory not found inside frontend build; static assets may 404.")
 
     # Serve favicon if present
-    favicon = static_path / 'favicon.ico'
+    favicon = frontend_root / 'favicon.ico'
     if favicon.exists():
         @app.get('/favicon.ico', include_in_schema=False)
         async def favicon_route():
@@ -145,15 +183,23 @@ if static_path.exists():
     # Serve index.html at root
     @app.get('/', include_in_schema=False)
     async def index():
-        return FileResponse(static_path / 'index.html')
+        index_file = frontend_root / 'index.html'
+        if index_file.exists():
+            return FileResponse(index_file)
+        raise HTTPException(status_code=404, detail='index.html not found')
 
     # SPA fallback: serve index.html for any non-API, non-static path
     @app.get('/{path_name:path}', include_in_schema=False)
     async def spa_fallback(path_name: str, request: Request):
+        # Let API and static paths return 404 for unknown resources
         if path_name.startswith('api') or path_name.startswith('static'):
-            from fastapi import HTTPException
             raise HTTPException(status_code=404)
-        return FileResponse(static_path / 'index.html')
+        index_file = frontend_root / 'index.html'
+        if index_file.exists():
+            return FileResponse(index_file)
+        raise HTTPException(status_code=404, detail='index.html not found for SPA fallback')
+else:
+    logger.warning("No frontend build directory found. SPA routes will 404. Set FRONTEND_BUILD_DIR or ensure build exists.")
 
 app.add_middleware(
     CORSMiddleware,
