@@ -21,6 +21,8 @@ import TermosUso from './pages/footer/TermosUso';
 import Tecnologias from './pages/footer/Tecnologias';
 import Setores from './pages/footer/Setores';
 import Parcerias from './pages/footer/Parcerias';
+import AdminBlog from './pages/admin/AdminBlog';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
@@ -44,6 +46,7 @@ function App() {
           {/* Main Pages */}
           <Route path="/clientes-cases" element={<ClientesCases />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contato" element={<Contato />} />
           
           {/* Footer Pages */}
@@ -52,6 +55,9 @@ function App() {
           <Route path="/tecnologias" element={<Tecnologias />} />
           <Route path="/setores" element={<Setores />} />
           <Route path="/parcerias" element={<Parcerias />} />
+
+          {/* Admin Pages */}
+          <Route path="/admin/blog" element={<AdminBlog />} />
         </Routes>
         <Footer />
       </BrowserRouter>
