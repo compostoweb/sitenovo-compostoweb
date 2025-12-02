@@ -13,12 +13,9 @@ const Manifesto = () => {
 
   const blocks = [
     {
-      title: 'Nosso Manifesto',
+      title: 'O Futuro é das Organizações Inteligentes',
       lines: [
-        'Acreditamos que empresas crescem quando tecnologia e pessoas trabalham juntas.',
-        'Acreditamos que eficiência não é um luxo, é um requisito.',
-        'Acreditamos que o futuro pertence às organizações inteligentes.',
-        'E estamos aqui para construir esse futuro agora.'
+        'Acreditamos que empresas só crescem de verdade quando tecnologia e pessoas operam em sintonia. Eficiência não é um luxo, é o requisito básico de sobrevivência. Estamos aqui para construir esse futuro agora.'
       ],
       icon: Sparkles,
       color: '#4A90E2'
@@ -26,11 +23,7 @@ const Manifesto = () => {
     {
       title: 'Por que Existimos',
       lines: [
-        'Existimos para transformar processos travados em operações fluidas.',
-        'Para eliminar tarefas repetitivas que drenam energia e tempo.',
-        'Para elevar equipes a um novo patamar de produtividade.',
-        'Para criar sistemas que geram resultados previsíveis e sustentáveis.',
-        'Para fazer a tecnologia trabalhar a favor do negócio e não contra ele.'
+        'Existimos para destravar o potencial operacional. Para eliminar a tarefa repetitiva que drena o talento humano. Para transformar processos travados em fluxos lógicos, rápidos e previsíveis. Para fazer a tecnologia trabalhar a favor do negócio, gerando resultados sustentáveis.'
       ],
       icon: Rocket,
       color: '#F5A623'
@@ -38,76 +31,24 @@ const Manifesto = () => {
     {
       title: 'Como Construímos',
       lines: [
-        'Não somos apenas implementadores de ferramentas.',
-        'Somos construtores de ecossistemas inteligentes que conectam automação, IA, software, vendas e marketing.',
-        'Sistemas que integram dados, aceleram operações e liberam pessoas do que não gera valor.',
-        'Tudo isso com uma única finalidade.',
-        'Criar empresas mais rápidas, mais eficientes e mais competitivas.'
+        '1. A Automação Potencializa o Humano, Robôs não substituem talentos; eles os libertam. A automação assume o repetitivo para dar espaço ao estratégico. Aumenta a capacidade, zera os erros e amplia o alcance.',
+        '2. Inteligência Comercial é Estrutura, Vendas não dependem de sorte ou talento isolado. Dependem de dados. Acreditamos na prospecção organizada, na equipe focada e na previsibilidade de receita. Inteligência comercial não é uma ferramenta; é cultura.',
+        '3. Nada é Isolado. Tudo se Conecta. Rejeitamos a fragmentação. Conectamos RPA, IA, Cloud, CRM e Marketing em um único sistema vivo. Dados fluem, operações aceleram e a empresa escala.',
+        
       ],
       icon: Layers,
       color: '#4A90E2'
     },
     {
-      title: 'Automação Potencializa Pessoas',
+      title: 'Nossa Missão',
       lines: [
-        'Acreditamos que automação não substitui pessoas.',
-        'Ela potencializa pessoas.',
-        'Aumenta capacidade.',
-        'Reduz erros.',
-        'Amplia alcance.',
-        'Dá espaço para o que realmente importa.'
+        'Transformar negócios comuns em empresas de Alta Performance. Negócios que decidem com clareza. Que crescem com previsibilidade. Que estão preparados para um futuro que já começou.',
+        'Composto Web. Automação e Inteligência.'
       ],
       icon: HeartHandshake,
       color: '#F5A623'
     },
-    {
-      title: 'Inteligência Comercial é Estrutura',
-      lines: [
-        'Acreditamos que vendas podem ser previsíveis.',
-        'Que prospecção pode ser organizada.',
-        'Que equipes podem trabalhar com foco e clareza.',
-        'E que inteligência comercial não é uma ferramenta.',
-        'É uma estrutura.',
-        'É cultura.',
-        'É performance.'
-      ],
-      icon: Brain,
-      color: '#4A90E2'
-    },
-    {
-      title: 'Tecnologia Que Liberta',
-      lines: [
-        'Acreditamos que tecnologia não pode ser um peso.',
-        'Ela precisa ser leve.',
-        'Simples.',
-        'Inteligente.',
-        'E sempre alinhada à estratégia.'
-      ],
-      icon: Quote,
-      color: '#F5A623'
-    },
-    {
-      title: 'Tudo é Integrado',
-      lines: [
-        'Por isso conectamos RPA, IA, automações avançadas, cloud, software interno, CRM, cadências, landing pages, fluxos no WhatsApp, dashboards e tudo que é necessário para criar uma operação sólida e escalável.',
-        'Nada é isolado.',
-        'Tudo é integrado.'
-      ],
-      icon: Layers,
-      color: '#4A90E2'
-    },
-    {
-      title: 'Missão',
-      lines: [
-        'Nossa missão é transformar negócios comuns em empresas de alta performance.',
-        'Negócios que trabalham com eficiência.',
-        'Negócios que tomam decisões com clareza.',
-        'Negócios que crescem com previsibilidade.',
-        'Negócios preparados para um futuro que já começou.'
-      ],
-      icon: Rocket,
-      color: '#F5A623'
-    }
+    
   ];
 
   return (
@@ -127,10 +68,10 @@ const Manifesto = () => {
               <span className="text-xs font-bold tracking-widest uppercase">Manifesto</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Somos <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] via-[#00E5FF] to-[#4A90E2] bg-[length:200%_auto] animate-gradient">Agentes de Transformação</span>
+              Somos <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] via-[#00E5FF] to-[#4A90E2] bg-[length:200%_auto] animate-gradient">Arquitetos de Eficiência.</span>
             </h1>
             <p className="text-lg text-gray-300 max-w-1xl mx-auto">
-              Não somos apenas tecnologia. Somos eficiência, cultura e inteligência aplicadas ao negócio.
+              Não entregamos apenas tecnologia. Entregamos cultura, inteligência e performance aplicadas ao negócio.
             </p>
           </div>
 
@@ -140,11 +81,11 @@ const Manifesto = () => {
               <div key={idx} className="fade-in-section p-6 rounded-2xl bg-gradient-to-br from-[#151518] to-[#0f0f11] border border-white/10">
                 <div className="flex items-center gap-3 mb-4">
                   <block.icon className="h-5 w-5" style={{ color: block.color }} />
-                  <h2 className="text-xl font-bold leading-snug md:leading-normal" style={{ color: block.color }}>{block.title}</h2>
+                  <p className="md:text-xl text-lg font-bold leading-snug md:leading-normal" style={{ color: block.color }}>{block.title}</p>
                 </div>
                 <div className="space-y-2">
                   {block.lines.map((line, i2) => (
-                    <p key={i2} className="text-gray-300 leading-relaxed">{line}</p>
+                    <p key={i2} className="text-[16px] text-gray-300 leading-relaxed">{line}</p>
                   ))}
                 </div>
               </div>
